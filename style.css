@@ -32,6 +32,143 @@
     box-sizing: border-box;
 }
 
+.menu {
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    width: 50px;
+    height: 30px;
+    z-index: 100;
+    background-color: transparent;
+}
+
+.menucircular {
+    display: none;
+}
+  
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(139, 112, 162, 0.7);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.menu-btn:hover {
+    opacity: 1;
+    background-color: rgb(139, 112, 162, 0.8);
+}
+
+.linha {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+  
+.linha-1 {
+    transform: translateY(-3px);
+}
+  
+.linha-2 {
+    transform: translateY(0px);
+}
+
+.linha-3 {
+    transform: translateY(3px);
+}
+  
+.linha-4 {
+    opacity: 0;
+}
+
+.menucircular:checked + .menu-btn {
+    opacity: 1;
+    background-color: rgba(44, 62, 80, 1);
+}
+  
+.menucircular:checked + .menu-btn .linha-1 {
+    transform: rotate(45deg) translateY(0);
+}
+  
+.menucircular:checked + .menu-btn .linha-2 {
+    opacity: 0;
+}
+  
+.menucircular:checked + .menu-btn .linha-3 {
+    transform: rotate(-45deg) translateY(0);
+}
+  
+.menu-a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #638DDB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    transform: scale(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+  
+.menucircular:checked ~ .ai-1 {
+    transform: scale(1) translate(70px, 0);
+}
+  
+.menucircular:checked ~ .ai-2 {
+    transform: scale(1) translate(50px, 50px);
+}
+  
+.menucircular:checked ~ .ai-3 {
+    transform: scale(1) translate(0, 70px);
+}
+  
+.menucircular:checked ~ .ai-4 {
+    transform: scale(1) translate(-50px, 50px);
+  }
+  
+/* Efeito hover nos itens do menu */
+.menu-a:hover {
+    background-color: #c0392b;
+    opacity: 1;
+}
+  
+.menucircular:checked ~ .ai-1:hover {
+    transform: scale(1.1) translate(70px, 0);
+}
+  
+.menucircular:checked ~ .ai-2:hover {
+    transform: scale(1.1) translate(50px, 50px);
+}
+  
+.menucircular:checked ~ .ai-3:hover {
+    transform: scale(1.1) translate(0, 70px);
+}
+  
+.menucircular:checked ~ .ai-4:hover {
+    transform: scale(1.1) translate(-50px, 50px);
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -245,17 +382,6 @@ a:hover{
     color: mediumvioletred;
 }
 
-#intro{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg);
-    padding: 15px;
-    box-shadow: 2px 2px 4px 1px rgb(139, 112, 162);
-    border-radius: 5px;
-    margin: 15px 0;
-}
-
 section#portfolio{
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
@@ -340,3 +466,104 @@ footer > p{
         padding: 30px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .menu {
+      top: 15px;
+      left: 15px;
+    }
+    
+    .menu-btn {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .menu-a {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+    
+    .menucircular:checked ~ .ai-1 {
+      transform: scale(1) translate(60px, 0);
+    }
+    
+    .menucircular:checked ~ .ai-2 {
+      transform: scale(1) translate(42px, 42px);
+    }
+    
+    .menucircular:checked ~ .ai-3 {
+      transform: scale(1) translate(0, 60px);
+    }
+    
+    .menucircular:checked ~ .ai-4 {
+      transform: scale(1) translate(-42px, 42px);
+    }
+    
+    .menucircular:checked ~ .ai-1:hover {
+      transform: scale(1.1) translate(60px, 0);
+    }
+    
+    .menucircular:checked ~ .ai-2:hover {
+      transform: scale(1.1) translate(42px, 42px);
+    }
+    
+    .menucircular:checked ~ .ai-3:hover {
+      transform: scale(1.1) translate(0, 60px);
+    }
+    
+    .menucircular:checked ~ .ai-4:hover {
+      transform: scale(1.1) translate(-42px, 42px);
+    }
+  }
+  
+  /* Ainda mais compacto para telas muito pequenas */
+  @media screen and (max-width: 480px) {
+    .menu {
+      top: 10px;
+      left: 10px;
+    }
+    
+    .menu-btn {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .menu-a {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+    
+    .menucircular:checked ~ .ai-1 {
+      transform: scale(1) translate(50px, 0);
+    }
+    
+    .menucircular:checked ~ .ai-2 {
+      transform: scale(1) translate(35px, 35px);
+    }
+    
+    .menucircular:checked ~ .ai-3 {
+      transform: scale(1) translate(0, 50px);
+    }
+    
+    .menucircular:checked ~ .ai-4 {
+      transform: scale(1) translate(-35px, 35px);
+    }
+    
+    .menucircular:checked ~ .ai-1:hover {
+      transform: scale(1.1) translate(50px, 0);
+    }
+    
+    .menucircular:checked ~ .ai-2:hover {
+      transform: scale(1.1) translate(35px, 35px);
+    }
+    
+    .menucircular:checked ~ .ai-3:hover {
+      transform: scale(1.1) translate(0, 50px);
+    }
+    
+    .menucircular:checked ~ .ai-4:hover {
+      transform: scale(1.1) translate(-35px, 35px);
+    }
+  }
