@@ -6,7 +6,7 @@
     border: none;
     font-size: 2rem; /* Aumenta o tamanho do ícone */
     position: fixed; /* Fixa o botão na tela */
-    top: 20px; /* Distância do topo */
+    top: 5px; /* Distância do topo */
     right: 20px; /* Distância da direita */
     opacity: 0.7; /* Deixa meio transparente */
     transition: opacity 0.3s ease, transform 0.2s ease;
@@ -19,9 +19,9 @@
 }
 .dark-theme{
     --fontColor: var(--white);
-    --bg: var(--dark);
+    --bg: var(--black);
     --btnBg: var(--white);
-    --boxBgColor: var(--black);
+    --boxBgColor: var(--dark);
 }
 :root{
     --destaque1: #00AEEF;
@@ -37,10 +37,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 0px;
+    margin: 50px 30px;
     color: var(--fontColor);
     background: var(--bg);
-    padding-bottom: 10px;
 }
 header{
     width: auto;
@@ -48,6 +47,7 @@ header{
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
+    
 }
 #container {
     display: flex; /* Deixa os elementos lado a lado */
@@ -76,6 +76,7 @@ header{
     position: absolute;
     width: 50px;
     height: 50px;
+    left: 50px;
     background: rgba(100, 149, 237, 0.3);
     border-radius: 50%;
     z-index: 1; /* Mantém atrás do avatar */
@@ -89,9 +90,10 @@ header{
     border-radius: 50%;
     animation: float 6s infinite ease-in-out;
 }
-.bubble:nth-child(1) { top: -30px; left: -100px; animation-duration: 4s; }
-.bubble:nth-child(2) { top: 30px; right: -40px; animation-duration: 5s; }
-.bubble:nth-child(3) { bottom: -60px; left: 50px; animation-duration: 6s; }
+.bubble:nth-child(1) {top: 100px; left: -10px; animation-duration: 4s;}
+.bubble:nth-child(2) {top: 30px; right: 10px; animation-duration: 5s;}
+.bubble:nth-child(3) {bottom: -5px; left: 50px; animation-duration: 6s;}
+.bubble:nth-child(4) {bottom: 5px; right: 5px; animation-duration: 4s;}
 @keyframes float {
     0%, 100%{
         transform: translateY(0);
@@ -100,24 +102,40 @@ header{
         transform: translateY(-20px);
     }
 }
-#oi{
-        font-family: "Cormorant", serif;
-        font-weight: lighter;
-        font-style: normal;
-        font-size: 2em;
-        color: #638DDB;
-        text-align: left;
-        line-height: 60px;
-}
-#oi > p{
-    font-family: "Cormorant", serif;
+#oi > h1{
+    width: 440px;
+    font-family: "VT323", serif;
     font-weight: lighter;
-    font-size: 0.5em;
+    letter-spacing: 2px;
+    font-size: 5em;
     color: #638DDB;
     text-align: left;
-    line-height: 20px;
-    padding-top: 0%;
+
+    animation: typing 2s steps(13), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+}
+#oi > p{
+    width: 550px;
+    font-family: "VT323", serif;
+    font-weight: lighter;
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #638DDB;
+    text-align: left;
     flex: 1;
+}
+@keyframes typing{
+    from {
+        width: 0;
+    }
+}
+@keyframes blink {
+    50%{
+        border-color: transparent;
+    }
 }
 .btn{
     top: 20px;
@@ -138,27 +156,27 @@ nav{
     border-radius: 5px;
     gap: 20px;
 }
-#hire-me {
+#contact-me {
     cursor: pointer;
-    font-size: 18px;
-    font-family: "Cormorant", serif;
+    font-size: 20px;
+    font-family: "VT323", serif;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     transition: 0.3s;
 }
-#hire-me a {
+#contact-me a {
     text-decoration: none; /* Remove o sublinhado padrão */
     color: #638DDB; /* Cor padrão do link */
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-#hire-me a:visited{
+#contact-me a:visited{
     color: rgb(139, 112, 162);
 }
-#hire-me a:hover{
+#contact-me a:hover{
     color: goldenrod;
 }
-#hire-me a:active{
+#contact-me a:active{
     color: mediumvioletred;
 }
 #intro{
